@@ -256,6 +256,12 @@ See [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/modul
 
 To perform actions across all jobs simply run the relevant *sbt* task without specifying the job name. For example:
 
-* Test all jobs: `sbt test`
 * Build jar for all jobs: `sbt assembly`
 * Build docker for all jobs: `sbt docker`
+
+_NOTE: Currently tests are disabled. If you need to run the tests:
+* remove the following sections from the `build.sbt`:
+```doctest
+settings(test := {})
+```
+* run `sbt test`
