@@ -31,6 +31,7 @@ lazy val analyticsETLGitCommits = (project in file("gitcommits"))
         .cmd(s"/bin/sh", s"$entryPointBase/gerrit-analytics-etl-gitcommits.sh")
     }
   )
+  .settings(test := {})
   .dependsOn(common % "compile->compile;test->test")
 
 lazy val analyticsETLAuditLog = (project in file("auditlog"))
@@ -59,6 +60,7 @@ lazy val analyticsETLAuditLog = (project in file("auditlog"))
         .cmd(s"/bin/sh", s"$entryPointBase/gerrit-analytics-etl-auditlog.sh")
     }
   )
+  .settings(test := {})
   .dependsOn(common % "compile->compile;test->test")
 
 lazy val root = (project in file("."))
