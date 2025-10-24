@@ -264,4 +264,8 @@ _NOTE: Currently tests are disabled. If you need to run the tests:
 ```doctest
 settings(test := {})
 ```
+remove the following section from the `project/SharedSettings.scala`:
+```doctest
+test in assembly := {}
+```
 * run `sbt test`
