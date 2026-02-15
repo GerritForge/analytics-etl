@@ -25,17 +25,17 @@ class GerritEndpointConfigTest extends FlatSpec with Matchers with ManifestXML {
 
   "gerritProjectsUrl" should "contain prefix when available" in {
     val prefix = "prefixMustBeThere"
-    val conf   = GerritEndpointConfig(baseUrl = Some("testBaseUrl"), prefix = Some(prefix))
+    val conf   = GerritEndpointConfig(baseUrl = Some("testBaseUrl"), prefix = Seq(prefix))
     conf.gerritProjectsUrl should contain(s"testBaseUrl/projects/?p=$prefix")
   }
 
   it should "not contain prefix when not available" in {
-    val conf = GerritEndpointConfig(baseUrl = Some("testBaseUrl"), prefix = None)
+    val conf = GerritEndpointConfig(baseUrl = Some("testBaseUrl"), prefix = Seq())
     conf.gerritProjectsUrl should contain(s"testBaseUrl/projects/")
   }
 
   "contributorsUrl" should "" in {
-    val conf = GerritEndpointConfig(baseUrl = Some("testBaseUrl"), prefix = None)
+    val conf = GerritEndpointConfig(baseUrl = Some("testBaseUrl"), prefix = Seq())
     conf.contributorsUrl(GerritProjectWithRef("opensbi","opensbi",Some("refs/tags/v0.8"))) should be
       (Some(s"testBaseUrl/projects/opensbi/analytics~contributors?&starting-revision=refs/tags/v0.8"))
   }

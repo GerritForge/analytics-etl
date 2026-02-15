@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets
 
 case class GerritEndpointConfig(
     baseUrl: Option[String] = None,
-    prefix: Option[String] = None,
+    prefixes: Seq[String] = Seq(),
     outputDir: String =
       s"file://${System.getProperty("java.io.tmpdir")}/analytics-${System.nanoTime()}",
     elasticIndex: Option[String] = None,
@@ -58,8 +58,11 @@ case class GerritEndpointConfig(
   val gerritApiConnection: GerritConnectivity =
     new GerritConnectivity(username, password, ignoreSSLCert.getOrElse(false))
 
-  val gerritProjectsUrl: Option[String] = baseUrl.map { url =>
-    s"${url}/projects/" + prefix.fold("")("?p=" + _)
+  val gerritProjectsUrls: Seq[String] = {
+    for {
+      url <- baseUrl.toSeq
+      pref <- prefixes
+    } yield s"$url/projects/?p=$pref"
   }
 
   def queryOpt(opt: (String, Option[String])): Option[String] = {

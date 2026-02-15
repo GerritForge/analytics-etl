@@ -96,7 +96,7 @@ class ProcessGitCommitsCommand @Inject()(
   override def run() {
     implicit val config = GerritEndpointConfig(
       gerritConfig.getListenUrl(),
-      prefix = Option(projectControl).map(_.getProject.getName),
+      prefixes = Seq(projectControl).map(_.getProject.getName),
       "",
       elasticIndex,
       beginDate,
@@ -147,7 +147,7 @@ class ProcessGitCommitsCommand @Inject()(
   }
 
   def fetchProjects(config: GerritEndpointConfig): Seq[GerritProjectWithRef] = {
-    config.prefix.toSeq.flatMap(
+    config.prefixes.toSeq.flatMap(
       projectName =>
         gerritProjects.getProject(projectName) match {
           case Success(project) =>
