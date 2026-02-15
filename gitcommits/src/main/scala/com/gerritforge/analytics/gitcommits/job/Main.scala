@@ -47,9 +47,9 @@ object Main extends App with SparkApp with Job with LazyLogging with FetchRemote
       opt[String]('u', "url") optional () action { (x, c) =>
         c.copy(baseUrl = Some(x))
       } text "gerrit url"
-      opt[String]('p', "prefix") optional () action { (p, c) =>
-        c.copy(prefix = Some(p))
-      } text "projects prefix"
+      opt[Seq[String]]('p', "prefix") optional () valueName "<v1>,<v2>" action { (p, c) =>
+        c.copy(prefix = p)
+      } text "comma-separated projects prefixes"
       opt[String]('o', "out") optional () action { (x, c) =>
         c.copy(outputDir = x)
       } text "output directory"
@@ -164,7 +164,7 @@ trait FetchProjects {
 trait FetchRemoteProjects extends FetchProjects {
   def fetchProjects(config: GerritEndpointConfig): Seq[GerritProjectWithRef] =
   config.projectsFromManifest.map(_.toSeq).getOrElse(
-    config.gerritProjectsUrl.toSeq.flatMap { url =>
+    config.gerritProjectsUrl.flatMap { url =>
       GerritProjectsSupport.parseJsonProjectListResponse(
         config.gerritApiConnection.getContentFromApi(url)
       )

@@ -96,7 +96,7 @@ class ProcessGitCommitsCommand @Inject()(
   override def run() {
     implicit val config = GerritEndpointConfig(
       gerritConfig.getListenUrl(),
-      prefix = Option(projectControl).map(_.getProject.getName),
+      prefix = Seq(projectControl).map(_.getProject.getName),
       "",
       elasticIndex,
       beginDate,
