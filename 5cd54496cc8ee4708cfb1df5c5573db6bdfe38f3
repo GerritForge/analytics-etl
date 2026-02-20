@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "443b9d1a_aa6af332",
+        "filename": "gitcommits/src/main/scala/com/gerritforge/analytics/gitcommits/model/GerritEndpointConfig.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-02-20T23:42:10Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "c0dc112a_b07c5e24",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "5cd54496cc8ee4708cfb1df5c5573db6bdfe38f3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7ee36de_6e6fca5e",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-02-20T16:13:53Z",
       "side": 1,
       "message": "```suggestion\n  val gerritProjectsUrls: Seq[String] \u003d {\n```",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 23
+      },
+      "revId": "5cd54496cc8ee4708cfb1df5c5573db6bdfe38f3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2700e9e_b86438b3",
+        "filename": "gitcommits/src/main/scala/com/gerritforge/analytics/gitcommits/model/GerritEndpointConfig.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-02-20T23:42:10Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "e7ee36de_6e6fca5e",
       "range": {
         "startLine": 61,
         "startChar": 6,
