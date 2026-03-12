@@ -14,6 +14,18 @@ dependencies, such as spark, elasticsearch client, test utils, etc.
 
 Each job can be built and published independently, both as a fat jar artifact or a docker image.  
 
+## License
+
+This project is licensed under the **Business Source License 1.1** (BSL 1.1).
+This is a "source-available" license that balances free, open-source-style access to the code
+with temporary commercial restrictions.
+
+* The full text of the BSL 1.1 is available in the [LICENSE.md](LICENSE.md) file in this
+  repository.
+* If your intended use case falls outside the **Additional Use Grant** and you require a
+  commercial license, please contact [GerritForge Sales](https://gerritforge.com/contact).
+
+
 # Spark ETL jobs
 
 Here below an exhaustive list of all the spark jobs provided by this repo, along with their documentation. 
